@@ -1,0 +1,114 @@
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.chr-theme.drop-element {
+  position: absolute;
+  z-index: 40;
+  display: none;
+}
+
+.chr-theme.drop-element.drop-open {
+  display: block;
+}
+
+.chr-theme.drop-element .drop-content {
+  background: #FFF;
+  border: 1px solid #DDD;
+  border-radius: 3px;
+  max-width: 300px;
+  box-shadow: 0 0 32px 0 rgba(0, 0, 0, .15);
+}
+
+.chr-theme.drop-target-attached-bottom .drop-content {
+  transform: translate(0, 7px);
+}
+.chr-theme.drop-target-attached-top .drop-content {
+  transform: translate(0, -7px);
+}
+
+.chr-theme.drop-element .drop-content:before {
+  content: " ";
+  width: 10px;
+  height: 10px;
+  background: #DDD;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.chr-theme.drop-element .drop-content:after {
+  content: " ";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.chr-theme.drop-target-attached-bottom .drop-content:before {
+  top: -6px;
+  left: calc(50% - 5px);
+}
+.chr-theme.drop-target-attached-bottom .drop-content:after {
+  top: -5px;
+  left: calc(50% - 5px);
+  background: #f7f7f7;
+}
+
+.chr-theme.drop-target-attached-top .drop-content:before {
+  bottom: -6px;
+  left: calc(50% - 5px);
+}
+.chr-theme.drop-target-attached-top .drop-content:after {
+  bottom: -5px;
+  left: calc(50% - 5px);
+  background: #fff;
+}
+
+.chr-theme.drop-element .chr-loading.drop-content:after {
+  background: #FFF;
+}
+
+.chr-theme.drop-element .drop-header,
+.chr-theme.drop-element .drop-body {
+  padding: 5px 10px;
+}
+
+.chr-theme.drop-element .drop-header {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #DDD;
+}
+
+.chr-theme.drop-element .drop-body {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.chr-drop-wrap {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.chr-title {
+  font-weight: 600;
+  color: #555;
+}
+
+.chr-number {
+  color: #767676;
+}
+
+.chr-theme.drop-element .drop-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.chr-loader {
+  margin: 10px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #CCC;
+  border-left-color: #555;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: spin 2s infinite;
+}

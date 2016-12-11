@@ -1,0 +1,4 @@
+/node_modules
+/npm-debug.log
+/addon/content_script.js
+/addon/content_script.js.map

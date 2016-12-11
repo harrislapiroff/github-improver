@@ -1,0 +1,20 @@
+{
+	"manifest_version": 2,
+
+	"name": "GitHub Improver",
+	"description": "Add features and improvements to GitHub",
+	"version": "1.0",
+
+	"permissions": [
+		"cookies",
+		"*://github.com/",
+		"*://www.github.com/"
+	],
+
+	"content_scripts": [
+		{
+			"matches": ["*://github.com/*", "*://www.github.com/*"],
+			"js": ["content_script.js"]
+		}
+	]
+}
