@@ -5,7 +5,7 @@ import Drop from 'tether-drop'
 import '~/modules/popover/popover.scss'
 
 const DATASET_NAMESPACE = 'chrGitHub'
-const ISSUE_LINK_REGEX = new RegExp("(https?://(www.)?github.com)?/([^/]+)/([^/]+)/issues/([0-9]+).*")
+const ISSUE_LINK_REGEX = new RegExp("(https?://(www.)?github.com)?/([^/]+)/([^/]+)/(issues|pull)/([0-9]+).*")
 const ISSUE_POPOVER_TEMPLATE = (link, title, number, description) => (`
 	<div class="chr-drop-wrap">
 		<div class="drop-header">
