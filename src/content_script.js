@@ -26,6 +26,7 @@ function handleContentLoad(data, drop) {
 	const issueDescription = issueDocument.getElementsByClassName('comment-body')[0].innerHTML
 	drop.content.innerHTML = ISSUE_POPOVER_TEMPLATE(data.finalUrl, issueTitle, issueNumber, issueDescription)
 	drop.content.classList.remove('chr-loading')
+	drop.loadedOnce = true
 	// Clear the title to prevent conflicting hover behavior
 	drop.target.title = ''
 	// Reposition the drop
@@ -34,7 +35,7 @@ function handleContentLoad(data, drop) {
 
 function handlePopover() {
 	const drop = this
-	drop.content.classList.add('chr-loading')
+	if (!drop.loadedOnce) drop.content.classList.add('chr-loading')
 	fetch(this.target.href, { credentials: 'include' })
 		.then((r) => r.text())
 		.then((r) => handleContentLoad(r, drop))
@@ -64,6 +65,7 @@ function createIssuePopovers() {
 			position: 'bottom center',
 		})
 		drop.on('open', handlePopover)
+		drop.loadedOnce = false
 		// Mark that we've instantiated on this link
 		l.dataset[DATASET_NAMESPACE] = true
 
