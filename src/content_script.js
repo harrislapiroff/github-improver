@@ -61,6 +61,8 @@ function createIssuePopovers() {
 			target: l,
 			content: '<div class="chr-loader"></div>',
 			openOn: 'hover',
+			hoverOpenDelay: 250,
+			hoverCloseDelay: 100,
 			classes: 'chr-theme',
 			position: 'bottom center',
 		})
